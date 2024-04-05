@@ -50,9 +50,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'captcha',
     'rest_framework_simplejwt',
-    'lending',
-
-    # my apps:
     'users',
     'api_v0',
 ]
