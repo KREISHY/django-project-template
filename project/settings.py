@@ -9,13 +9,13 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 from config.config import (
     DEBUG_CONFIG, SECRET_KEY_CONFIG,
     DJANGO_ALLOWED_HOSTS_CONFIG,
     DB_ENGINE, DB_DATABASE, DB_USER,
-    DB_PASSWORD, DB_HOST, DB_PORT
+    DB_PASSWORD, DB_HOST, DB_PORT, CORS_ALLOWED_ORIGINS_CONFIG
 )
 from datetime import timedelta
 
@@ -80,10 +80,11 @@ REST_FRAMEWORK = {
 
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3030',
-    'http://tpbook2.shgpi'
-]
+# CORS_ALLOWED_ORIGINS = [
+#     'http://localhost:3030',
+#     'http://tpbook2.shgpi'
+# ]
+CORS_ALLOWED_METHODS = CORS_ALLOWED_ORIGINS_CONFIG
 
 ROOT_URLCONF = 'project.urls'
 
@@ -168,9 +169,10 @@ AUTH_USER_MODEL = "users.User"
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
+# STATICFILES_DIRS = [
+#     BASE_DIR / 'static',
+# ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
