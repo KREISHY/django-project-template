@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'bootstrap5',
     'rest_framework',
     'corsheaders',
+    'drf_spectacular',
     'captcha',
     'rest_framework_simplejwt',
     'users',
@@ -75,7 +76,8 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    ),
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 CORS_ALLOW_ALL_ORIGINS = True
