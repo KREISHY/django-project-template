@@ -41,7 +41,6 @@ DB_PORT=5432
 ```
 ### .env.docker
 ```bash
-```bash
 # .env
 DEBUG=1 # debug mode
 SECRET_KEY=secret
